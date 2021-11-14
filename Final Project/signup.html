@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+
+        <ul class="nav navbar-left">
+            <li class="nav-item"> <a href="index.html" class="nav-link navbar-brand">Hotel Palace</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item "><a class="nav-link" href="news.html">News</a></li>
+            <li class="nav-item "><a class="nav-link" href="login.html">Login</a></li>
+        </ul>
+
+    </header>
+    <div class="container-fluid">
+        <div class = "form">
+
+            <form action="main.html">
+                <table style="text-align: left; margin-left:auto;margin-right:auto;">
+                    <tr>
+                        <th>
+                            <label for="email">Email</label>
+                        </th>
+                        <th>
+                            <input type="email" id="email" required>
+                        </th>
+                    </tr>
+    
+                    <tr>
+                        <th>
+                            <label for="fname">First Name</label>
+                        </th>
+                        <th> <input type="text" id="fname" required></th>
+                    </tr>
+                    <tr>
+                        <th><label for="lname">Last Name</label></th>
+                        <th>
+                            <input type="text" id="lname" required>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th> <label for="street"> Street</label></th>
+                        <th> <input type="text" id="street" required></th>
+                    </tr>
+                    <tr>
+                        <th> <label for="houseNum">House Number</label></th>
+                        <th><input type="number" id="houseNum"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="zipCode">Zip Code</label></th>
+                        <th> <input type="number" id="zipCode"></th>
+                    </tr>
+                    <tr>
+                        <th><label for="title">Title</label></th>
+                        <th><select name="title" id="title">
+                                <option value="mr">MR</option>
+                                <option value="ms">MS</option>
+                                <option value="other">other</option>
+                            </select></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th><br><input type="submit" name="submit" id="subbutton"></th>
+                    </tr>
+                </table>
+    
+            </form>
+    </div>
+    
+</body>
+</html>
