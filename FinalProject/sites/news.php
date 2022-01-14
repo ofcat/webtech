@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-    <title>Hotel Palace</title>
-</head>
-
+<?php include 'includes/head.php'?>
 <body>
-    <header>
-
-        <ul class="nav navbar-left">
-            <li class="nav-item"> <a href="index.html" class="nav-link navbar-brand">Hotel Palace</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item "><a class="nav-link" href="news.html">News</a></li>
-            <li class="nav-item "><a class="nav-link" href="">Login</a></li>
-        </ul>
-
-    </header>
-
+<?php include 'includes/navbar.php'?>
 
     <div class="container">
         <h4>Test</h4>
@@ -35,8 +9,8 @@
         <div class="container-fluid ">
             <div class="row">
                 <div class="col">
-                    <a href="about.html">
-                        <img src="img/ladder.png" alt="">
+                    <a href="about.php">
+                        <img src="../img/ladder.png" alt="">
 
                         <h6>New Room</h6>
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
@@ -49,8 +23,8 @@
                     </a>
                 </div>
                 <div class="col">
-                    <a href="about.html">
-                        <img src="img/night.png" alt="">
+                    <a href="about.php">
+                        <img src="../img/night.png" alt="">
 
                         <h6>New Room</h6>
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
@@ -67,8 +41,8 @@
 
             <div class="row">
                 <div class="col">
-                    <a href="about.html">
-                        <img src="img/comedian.jpg" alt="">
+                    <a href="about.php">
+                        <img src="../img/comedian.jpg" alt="">
 
                         <h6>New Room</h6>
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
@@ -81,8 +55,8 @@
                     </a>
                 </div>
                 <div class="col">
-                    <a href="about.html">
-                        <img src="img/flower.jpg" alt="">
+                    <a href="about.php">
+                        <img src="../img/flower.jpg" alt="">
 
                         <h6>New Room</h6>
                         <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
@@ -103,25 +77,10 @@
     </div>
     </div>
 
-    <footer class="static-bottom">
-        <div class="row">
-            <div class="col-sm-5">
-                <span >48°14'22"N 16°22'40E"</span>
-            </div>
-            <div class="col-sm-5">
-                <strong class="name">Hotel Palace</strong>
+    <?php include 'includes/footer.php';?>
 
-                <nav class="footer-nav">
-                    <a href="about.html">About</a>
-                    <a href="news.html">News</a>
-                    <a href="">Login</a>
-                </nav>
-            </div>
-        </div>
+     <!--JavaScript-->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    
-
-    </footer>
 </body>
-
 </html>
