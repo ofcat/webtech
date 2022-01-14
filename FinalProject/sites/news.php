@@ -2,11 +2,11 @@
 <body>
 <?php include 'includes/navbar.php'?>
 
-    <div class="container">
+    <div class="container-fluid">
         <h4>Test</h4>
         <hr>
 
-        <div class="container-fluid ">
+        <div class="container ">
             <div class="row">
                 <div class="col">
                     <a href="about.php">
