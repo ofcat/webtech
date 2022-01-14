@@ -93,12 +93,17 @@ footer{
     list-style: none;
     font-size: large;
     margin-bottom: 3em;
+
+
 }
 
 .col-sm-4{
     padding-left: 3em;
 }
 
+.login-input{
+    margin: 4em;
+}
 
 
 

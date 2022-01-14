@@ -1,57 +1,91 @@
 <?php include 'includes/head.php'?>
-
 <body>
-  <!-- navbar -->
-  <?php include 'includes/navbar.php'?>
+<?php include 'includes/navbar.php'?>
+<?php
+    require('../config/db.php');
+    // When form submitted, insert values into the database.
+    if (isset($_REQUEST['username'])) {
+        // removes backslashes
+        $username = stripslashes($_REQUEST['username']);
+        //escapes special characters in a string
+        $username = mysqli_real_escape_string($con, $username);
+        $useremail    = stripslashes($_REQUEST['useremail']);
+        $useremail    = mysqli_real_escape_string($con, $useremail);
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($con, $password);
+        $firstName = stripslashes($_REQUEST['firstName']);
+        $firstName = mysqli_real_escape_string($con, $firstName);
+        $lastName = stripslashes($_REQUEST['lastName']);
+        $lastName = mysqli_real_escape_string($con, $lastName);
+        $salutation = stripslashes($_REQUEST['salutation']);
+        $salutation = mysqli_real_escape_string($con, $salutation);
 
-  <p class="text-center lead text-success">If you want to use this webpage please register.</p>
+       
+        $query    = "INSERT into `users` (firstName, lastName, salutation, username, password, useremail)
+                     VALUES ('$firstName', '$lastName', '$salutation', '$username', '" . md5($password) . "', '$useremail' )";
+        $result   = mysqli_query($con, $query);
+        if ($result) {
+            echo "<div class='form'>
+                  <h3>You are registered successfully.</h3><br/>
+                  <p class='link'>Click here to <a href='Login.php'>Login</a></p>
+                  </div>";
+        } else {
+            echo "<div class='form'>
+                  <h3>Required fields are missing.</h3><br/>
+                  <p class='link'>Click here to <a href='Registration.php'>registration</a> again.</p>
+                  </div>";
+        }
+    } else {
+?>
+    <form class="form" action="" method="post" style="margin-left: 50px">
+        <h4 class="login-title">Registration</h4>
+        <input type="text" style="margin-bottom: 10px" class="login-input" name="firstName" placeholder="First Name" required />
+        <input type="text" style="margin-bottom: 10px" class="login-input" name="lastName" placeholder="Last Name" required />
+        <input type="text" style="margin-bottom: 10px" class="login-input" name="salutation" placeholder="Mr/Ms" required /><br>
+        <input type="text" style="margin-bottom: 10px" class="login-input" name="username" placeholder="Username" required />
+        <input type="text" style="margin-bottom: 10px" class="login-input" name="useremail" placeholder="Email Adress">
+        <input type="password" style="margin-bottom: 10px" class="login-input" name="password" placeholder="Password"> <br>
+        <input type="submit" name="submit" value="Register" class="login-button">
+        <p class="link"><a href="Login.php">Click to Login</a></p>
+    </form>
 
-  <!-- Registration Form -->
-  <div class="container">
-    <div class="card border-success">
-      <form action = "Register.php" method="post">
-        <div class="card-header">
-          <h3>Register</h3>
+
+
+
+    <!-- <div class="signup-form">
+    <form action="" method="post">
+		<h2>Register</h2>
+        <div class="form-group">
+			<div class="row">
+				<div class="col-xs-6"><input type="text" class="form-control" name="firstName" placeholder="First Name" required="required"></div>
+				<div class="col-xs-6"><input type="text" class="form-control" name="lastName" placeholder="Last Name" required="required"></div>
+			</div>        	
         </div>
-        <div class="card-body">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" value="name" name="name" class="form-control">
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" value="password" name="password" class="form-control">
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="e-mail">e-mail</label>
-            <input type="email" value="e-mail" name="email" class="form-control">
-          </div>
+        <div class="form-group">
+        	<input type="text" class="form-control" name="salutation" placeholder="Mr/Ms" required="required">
         </div>
-        <div class="card-footer">
-          <input type="submit" value="submit">
+        <div class="form-group">
+        	<input type="email" class="form-control" name="useremail" placeholder="Email" required="required">
         </div>
-      </form>
-    </div>
-  </div>
-  <?php
-  $path = 'Information/Registrations/';
-  if (!file_exists($path)) {
-    mkdir($path, 0777, true);
-  }
-  
-  if (isset($_POST['password']) and isset($_POST['email']) and isset($_POST['name'])) {
-    $data = array($_POST['email'], $_POST['password'], $_POST['name']);
-    $eintrag = implode(";", $data) . "\n\r";
-    file_put_contents($path . 'user_info.txt', $eintrag, FILE_APPEND);
-
-    setcookie("login","",time()-60,"/");
-    setcookie("login", $eintrag, time()+60,"/");
-  }
-  ?>
-
-
+        <div class="form-group">
+        	<input type="text" class="form-control" name="username" placeholder="Username" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        </div>        
+      
+		<div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+        </div>
+    </form>
+	<div class="text-center">Already have an account? <a href="Login.php">Sign in</a></div>
+</div> -->
+<?php
+    }
+?>
+<?php include 'includes/footer.php'?>
 </body>
-<?php include 'includes/footer.php';?>
 </html>
