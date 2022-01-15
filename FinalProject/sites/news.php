@@ -2,85 +2,44 @@
 <body>
 <?php include 'includes/navbar.php'?>
 
+
+
+
     <div class="container-fluid">
-        <h4>Test</h4>
-        <hr>
+    <h3>News</h3>
+       <?php
+       require('../config/db.php');
 
-        <div class="container ">
-            <div class="row">
-                <div class="col">
-                    <a href="about.php">
-                        <img src="../img/ladder.png" alt="">
+       $query = "SELECT id, title, body, create_datetime, picPath FROM news order by create_datetime desc";
+$result = mysqli_query($con, $query);
 
-                        <h6>New Room</h6>
-                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
-                            corporis!
-                            Illo
-                            nostrum
-                            numquam dolores voluptatibus maiores, iste nisi excepturi aliquid possimus ipsam! Eligendi
-                            voluptatibus,
-                            quia quasi ratione nulla cum!</p>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="about.php">
-                        <img src="../img/night.png" alt="">
+?>
+<hr>
+<div class="container-fluid">
+<?php
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    //echo "id " .$row["id"]; 
+    echo "<h4>" .$row["title"] . "</h4><br>";
 
-                        <h6>New Room</h6>
-                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
-                            corporis!
-                            Illo
-                            nostrum
-                            numquam dolores voluptatibus maiores, iste nisi excepturi aliquid possimus ipsam! Eligendi
-                            voluptatibus,
-                            quia quasi ratione nulla cum!</p>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <a href="about.php">
-                        <img src="../img/comedian.jpg" alt="">
-
-                        <h6>New Room</h6>
-                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
-                            corporis!
-                            Illo
-                            nostrum
-                            numquam dolores voluptatibus maiores, iste nisi excepturi aliquid possimus ipsam! Eligendi
-                            voluptatibus,
-                            quia quasi ratione nulla cum!</p>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="about.php">
-                        <img src="../img/flower.jpg" alt="">
-
-                        <h6>New Room</h6>
-                        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, asperiores
-                            corporis!
-                            Illo
-                            nostrum
-                            numquam dolores voluptatibus maiores, iste nisi excepturi aliquid possimus ipsam! Eligendi
-                            voluptatibus,
-                            quia quasi ratione nulla cum!</p>
-                    </a>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
+    //if(isset($picPath) )
+    echo "<img src='" . $row["picPath"]."' >"; ?>
+ 
+    <?php 
+    echo  "<br><br> "  . $row["body"]. "<br><br>date posted " .$row["create_datetime"]. "<br> <br><hr>";
+    
+  }
+} else {
+  echo "0 results";
+}
+       
+       
+       ?>   
+       </div>    
     </div>
 
     <?php include 'includes/footer.php';?>
 
-     <!--JavaScript-->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    
 </body>
-</html>
