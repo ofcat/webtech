@@ -21,6 +21,7 @@ if (mysqli_num_rows($result) > 0) {
 		<td>Salutation</td>
 		<td>Username</td>
 		<td>Useremail</td>
+		<td>Password</td>
 	  </tr>
 			<?php
 			$i=0;
@@ -33,6 +34,7 @@ if (mysqli_num_rows($result) > 0) {
 		<td><?php echo $row["salutation"]; ?></td>
 		<td><?php echo $row["username"]; ?></td>
         <td><?php echo $row["useremail"]; ?></td>
+		<td><?php echo $row["password"]; ?></td>
 		<td><a href="update-process.php?id=<?php echo $row["id"]; ?>">Update</a></td>
       </tr>
 			<?php

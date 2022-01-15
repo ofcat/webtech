@@ -12,27 +12,27 @@
                         <a class="nav-link" href="../sites/index.php">Hotel Palace</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../sites/news.php">News</a>
+                        <a class="nav-link" href="../sites/news.php">news</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../sites/about.php">About</a>
+                        <a class="nav-link" href="../sites/about.php">about</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../sites/help.php">Help</a>
+                        <a class="nav-link" href="../sites/help.php">help</a>
                     </li>
                     <?php if (!isset($_SESSION["username"])) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="Registration.php">Registration</a>
+                        <a class="nav-link" href="Registration.php">registration</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Login.php">Login</a>
+                        <a class="nav-link" href="Login.php">login</a>
                     </li>
                     <?php } if(isset($_SESSION["username"]) && $_SESSION["username"] === "admin") { ?>
                         <li class="nav-item">
-                        <a class="nav-link" href="../sites/adminNews.php">New News</a>
+                        <a class="nav-link" href="../sites/adminNews.php">publish</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../sites/user_moderation.php">Mod Cave</a>
+                        <a class="nav-link" href="../sites/user_moderation.php">customs</a>
                     </li>
                    
                     <?php }?> 
@@ -40,7 +40,7 @@
                         <li class="nav-item">
                         <a class="nav-link" href="../sites/userprofile.php"><?php echo $_SESSION['username']?></a>
                         <li class="nav-item">
-                        <a class="nav-link" href="../config/logout.php">Logout</a>
+                        <a class="nav-link" href="../config/logout.php">check-out?</a>
                     </li>
                     <?php } ?>
                    

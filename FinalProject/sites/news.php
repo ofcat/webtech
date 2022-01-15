@@ -5,7 +5,7 @@
 
 
 
-    <div class="container">
+    <div class="container-fluid">
     <h3>News</h3>
        <?php
        require('../config/db.php');
