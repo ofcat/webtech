@@ -21,23 +21,24 @@ img{
 
 }
 
+
 a{
     color: black;
 }
 
-.col{
+/* .col{
     margin-top: 1em;
     padding-left: 50px;
     column-gap: 10px;
-}
+} */
 
 a:hover{
     color: rgb(85, 83, 83);
 }
 
-.row{
+/* .row{
     margin-left: 75px;
-}
+} */
 
 .about{
     margin-top: 1em;
@@ -79,8 +80,32 @@ p{
 footer{
     margin-top: 100px;
     padding-bottom: 10px;
+    margin-left: 3em;
 }
 
+.col-sm-2{
+    
+    margin-left: 18em;
+    margin-bottom: 2em;
+}
+.navbar-custom {
+    color: black;
+    list-style: none;
+    font-size: large;
+    margin-bottom: 3em;
+}
+
+.col-sm-4{
+    padding-left: 3em;
+}
+
+.login-input{
+    margin-bottom: 10px;
+}
+
+.form{
+    margin-left: 50px;
+}
 
 
 
