@@ -37,15 +37,16 @@
         }
     } else {
 ?>
-    <form class="form" action="" method="post" style="margin-left: 50px">
+    <form class="form" action="" method="post" >
         <h4 class="login-title">Registration</h4>
-        <input type="text" style="margin-bottom: 10px" class="login-input" name="firstName" placeholder="First Name" required />
-        <input type="text" style="margin-bottom: 10px" class="login-input" name="lastName" placeholder="Last Name" required />
-        <input type="text" style="margin-bottom: 10px" class="login-input" name="salutation" placeholder="Mr/Ms" required /><br>
-        <input type="text" style="margin-bottom: 10px" class="login-input" name="username" placeholder="Username" required />
-        <input type="text" style="margin-bottom: 10px" class="login-input" name="useremail" placeholder="Email Adress">
-        <input type="password" style="margin-bottom: 10px" class="login-input" name="password" placeholder="Password"> <br>
+        <input type="text"class="login-input" name="firstName" placeholder="First Name" required />
+        <input type="text" class="login-input" name="lastName" placeholder="Last Name" required />
+        <input type="text" class="login-input" name="salutation" placeholder="Mr/Ms" required /><br>
+        <input type="text" class="login-input" name="username" placeholder="Username" required />
+        <input type="email" class="login-input" name="useremail" placeholder="Email Adress" required>
+        <input type="password" class="login-input" name="password" placeholder="Password" required> <br>
         <input type="submit" name="submit" value="Register" class="login-button">
+        <input type="reset">
         <p class="link"><a href="Login.php">Click to Login</a></p>
     </form>
 

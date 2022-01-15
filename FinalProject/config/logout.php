@@ -1,8 +1,8 @@
 <?php
-    session_start();
+     session_start();
     // Destroy session
     if(session_destroy()) {
         // Redirecting To Home Page
-        header("Location: ../sites/Login.php");
+        header("Location: ../sites/index.php");
     }
 ?>

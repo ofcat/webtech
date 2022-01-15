@@ -1,4 +1,5 @@
-<?php include 'includes/head.php'?>
+<?php 
+include 'includes/head.php'?>
 <body>
     <?php include 'includes/navbar.php'?>
     <div class="container ">

@@ -93,8 +93,6 @@ footer{
     list-style: none;
     font-size: large;
     margin-bottom: 3em;
-
-
 }
 
 .col-sm-4{
@@ -102,7 +100,11 @@ footer{
 }
 
 .login-input{
-    margin: 4em;
+    margin-bottom: 10px;
+}
+
+.form{
+    margin-left: 50px;
 }
 
 
