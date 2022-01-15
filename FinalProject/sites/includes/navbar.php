@@ -30,6 +30,9 @@
                     <?php } if(isset($_SESSION["username"]) && $_SESSION["username"] === "admin") { ?>
                         <li class="nav-item">
                         <a class="nav-link" href="../sites/adminNews.php">New News</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="../sites/user_moderation.php">Mod Cave</a>
                     </li>
                    
                     <?php }?> 
