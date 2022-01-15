@@ -33,20 +33,26 @@ include 'includes/navbar.php'?>
         }
     } else {
         ?>
+
+        <div class="container-fluid">
+
         <form class="form" action="" method="post" >
         <h4 class="news-title">News</h4>
         <input type="text"class="news-input" name="title" placeholder="Title" required /><br>
-        <input type="text"class="news-input" name="picPath" placeholder="Path to image" value="../uploads/" required/><br>
+        <input type="text"class="news-input" name="picPath" placeholder="Path to image" value="../uploads/news/" required/><br>
         <textarea  name="body" rows="4" cols="50" maxlength="999"></textarea> <br>
         
         <input type="submit" name="submit" value="Submit" class="news-button">
-        <input type="reset">
+        <input type="reset" value="Reset">
         <p class="link"><a href="news.php">Click to view News</a></p>
     </form>
+        </div>
+        
 
     <?php
     }
-?>
+?> 
+<div class="container-fluid">
 <h4>Upload pictures</h4>
 <form action="" method ="POST" enctype="multipart/form-data">
         <label for="file">File</label>
@@ -54,9 +60,13 @@ include 'includes/navbar.php'?>
         <button type="submit">Upload</button>
     </form>
 
+</div>
+
+
     <?php
-$target_dir = "../uploads/news";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_dir = "../uploads/news/";
+if (isset($_FILES["fileToUpload"])) {
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -102,6 +112,9 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+}
+
+
 ?>
 
 
