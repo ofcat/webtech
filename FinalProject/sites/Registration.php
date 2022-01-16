@@ -19,6 +19,7 @@
         $lastName = mysqli_real_escape_string($con, $lastName);
         $salutation = stripslashes($_REQUEST['salutation']);
         $salutation = mysqli_real_escape_string($con, $salutation);
+        
 
        
         $query    = "INSERT into `users` (firstName, lastName, salutation, username, password, useremail)

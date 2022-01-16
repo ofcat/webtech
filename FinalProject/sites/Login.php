@@ -1,6 +1,7 @@
 <?php include 'includes/head.php'?>
 <body>
 <?php include 'includes/navbar.php'?>
+<?php include 'includes/user_access.php'?>
 <?php
     require('../config/db.php');
    // session_start();
@@ -13,10 +14,13 @@
         // Check user is exist in the database
         $query    = "SELECT * FROM `users` WHERE username='$username'
                      AND password='" . md5($password) . "'";
-        $result = mysqli_query($con, $query) or die(mysql_error());
+        $result = mysqli_query($con, $query) or die(mysqli_error($con));
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $_SESSION['username'] = $username;
+            // change access
+            login($username, $con);
+            
             // Redirect to user dashboard page
             header("Location: ../config/dashboard.php");
         } else {
