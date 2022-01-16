@@ -1,7 +1,6 @@
 <?php include 'includes/head.php'?>
 <body>
 <?php include 'includes/navbar.php'?>
-<?php include 'includes/user_access.php'?>
 <?php
     require('../config/db.php');
    // session_start();
