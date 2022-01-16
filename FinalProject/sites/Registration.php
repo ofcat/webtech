@@ -41,12 +41,15 @@
         <h4 class="login-title">Registration</h4>
         <input type="text"class="login-input" name="firstName" placeholder="First Name" required />
         <input type="text" class="login-input" name="lastName" placeholder="Last Name" required />
-        <input type="text" class="login-input" name="salutation" placeholder="Mr/Ms" required /><br>
+        <input type="radio" class="login-input" name="salutation" value="Mr"required id="mr"/>
+        <label for="mr">Mr</label>
+        <input type="radio" class="login-input" name="salutation" value="Ms"required id="ms"/>
+        <label for="mr">Ms</label><br>
         <input type="text" class="login-input" name="username" placeholder="Username" required />
         <input type="email" class="login-input" name="useremail" placeholder="Email Adress" required>
         <input type="password" class="login-input" name="password" placeholder="Password" required> <br>
         <input type="submit" name="submit" value="Register" class="login-button">
-        <input type="reset">
+        <input type="reset" value ="Reset">
         <p class="link"><a href="Login.php">Click to Login</a></p>
     </form>
 
