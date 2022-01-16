@@ -47,7 +47,7 @@ if (mysqli_num_rows($result) > 0) {
 		$userright = 2;
 		if (isset($_SESSION['RechteID'])) {
 			// removes backslashes
-			$userright = stripslashes($_SESSION['username']);
+			$userright = stripslashes($_SESSION['RechteID']);
 		}
 		if($userright > $right){
 			?>

@@ -3,7 +3,7 @@
 <?php include 'includes/navbar.php'?>
 <?php
     require('../config/db.php');
-   // session_start();
+    // session_start();
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
         $username = stripslashes($_REQUEST['username']);    // removes backslashes
@@ -17,6 +17,7 @@
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $_SESSION['username'] = $username;
+            $_SESSION['RechteID'] = getRights($username, $con);
             // change access
             login($username, $con);
             

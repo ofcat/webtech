@@ -61,7 +61,7 @@ include '../sites/includes/head.php'
     <td>
     <input type="text" name="password" class="txtField" value="<?php echo $row['password'];?>">
     </td>
-    <td type="text" name="password" class="txtField" value="<?php echo $attribution['Name'];?>>
+    <td type="text" name="password" class="txtField" value="<?php echo $attribution['Name'];?>">
 
     </td>
 
