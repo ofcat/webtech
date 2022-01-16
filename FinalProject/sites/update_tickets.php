@@ -3,14 +3,14 @@ include '../sites/includes/navbar.php';
 include '../sites/includes/head.php';
 require('../config/db.php');
 if(count($_POST)>0) {
-mysqli_query($con,"UPDATE tickets set  Body='" . $_POST['Body'] . "', Status='" . $_POST['Status'] . "' WHERE id='" . $_POST['id'] . "'");
+mysqli_query($con,"UPDATE tickets set  Body='" . $_POST['Body'] . "', Status='" . $_POST['Status'] . "' WHERE TicketID='" . $_POST['id'] . "'");
 $message = "Record Modified Successfully";
 // if($_SESSION['id']  != 6){
 //     header('Location: ../config/logout.php');
 // }
 
 }
-$result = mysqli_query($con,"SELECT * FROM tickets WHERE id='" . $_GET['id'] . "'");
+$result = mysqli_query($con,"SELECT * FROM tickets WHERE TicketID='" . $_GET['TicketID'] . "'");
 $row= mysqli_fetch_array($result);
 
 ?>
@@ -34,7 +34,7 @@ $row= mysqli_fetch_array($result);
 
 <tr>
     <td>
-    <input type="hidden" name="id" class="txtField" value="<?php echo $row['ID']; ?>">
+    <input type="hidden" name="id" class="txtField" value="<?php echo $row['TicketID']; ?>">
     <!-- <input type="text" name="id"  value="<?php echo $row['ID']; ?>"> -->
     </td>
     <td>
