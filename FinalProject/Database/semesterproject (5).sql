@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 19. Jan 2022 um 13:11
+-- Erstellungszeit: 19. Jan 2022 um 19:32
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.12
 
@@ -65,8 +65,9 @@ CREATE TABLE `rechte` (
 INSERT INTO `rechte` (`ID`, `Name`) VALUES
 (1, 'Anonym'),
 (2, 'Guest'),
-(3, 'Admin'),
-(4, 'Owner');
+(3, 'Service-Techniker'),
+(4, 'Admin'),
+(5, 'Owner');
 
 -- --------------------------------------------------------
 
@@ -97,20 +98,25 @@ INSERT INTO `status` (`ID`, `Name`) VALUES
 CREATE TABLE `tickets` (
   `TicketID` int(11) NOT NULL,
   `Status` tinyint(1) NOT NULL DEFAULT 1,
-  `Body` varchar(255) NOT NULL
+  `Body` varchar(255) NOT NULL,
+  `Title` varchar(50) NOT NULL DEFAULT 'Title',
+  `Answer` varchar(200) DEFAULT NULL,
+  `Picture` varchar(200) DEFAULT NULL,
+  `time` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `tickets`
 --
 
-INSERT INTO `tickets` (`TicketID`, `Status`, `Body`) VALUES
-(1, 3, 'problem with login'),
-(2, 1, 'Problem with email'),
-(3, 1, 'there is a problem'),
-(4, 1, 'there is a problem'),
-(5, 2, 'there is a problem'),
-(6, 1, 'dfdfdfdf');
+INSERT INTO `tickets` (`TicketID`, `Status`, `Body`, `Title`, `Answer`, `Picture`, `time`) VALUES
+(1, 3, 'problem with login', 'login', 'Working on it', NULL, NULL),
+(2, 2, 'Problem with email', 'email', NULL, NULL, NULL),
+(7, 1, '', 'Title', NULL, NULL, NULL),
+(8, 1, 'A new Ticket', 'Title', NULL, NULL, '0000-00-00'),
+(9, 1, 'A new Ticket', 'Title', NULL, NULL, '0000-00-00'),
+(10, 1, '', 'Title', NULL, NULL, '0000-00-00'),
+(11, 1, '', 'Title', NULL, NULL, '2022-01-19');
 
 -- --------------------------------------------------------
 
@@ -135,10 +141,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `firstName`, `lastName`, `salutation`, `username`, `password`, `useremail`, `RechteID`, `userStatus`) VALUES
-(1, 'Martin', 'Böck', 'Mr.', 'mb', '63a9f0ea7bb98050796b649e85481845', 'mb@boeck.info', 4, 'active'),
-(2, 'Vasilii', 'Klemenko', 'Mr.', 'vk', '63a9f0ea7bb98050796b649e85481845', 'wi20b030@technikum-wien.at', 4, 'active'),
+(1, 'Martin', 'Böck', 'Mr.', 'mb', '63a9f0ea7bb98050796b649e85481845', 'mb@boeck.info', 5, 'active'),
+(2, 'Vasilii', 'Klemenko', 'Mr.', 'vk', '63a9f0ea7bb98050796b649e85481845', 'wi20b030@technikum-wien.at', 5, 'active'),
 (3, 'test', '1', 'Mr.', 't2', '098f6bcd4621d373cade4e832627b4f6', 't@test.at', 1, 'active'),
-(4, 'some', 'admin', 'Mr.', 'sa', '63a9f0ea7bb98050796b649e85481845', 'sa@test.at', 3, 'active');
+(4, 'some', 'admin', 'Mr.', 'sa', '63a9f0ea7bb98050796b649e85481845', 'sa@test.at', 4, 'active'),
+(5, 'Service', 'Techniker', 'Mr.', 'st', 'd9f9133fb120cd6096870bc2b496805b', 'st@technik.at', 3, 'active');
 
 --
 -- Indizes der exportierten Tabellen
@@ -195,13 +202,13 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT für Tabelle `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `TicketID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `TicketID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
