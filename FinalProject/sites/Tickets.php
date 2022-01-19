@@ -92,8 +92,8 @@ if ($result->num_rows > 0) {
   
     <tr>
       <td>
-        <?php echo "id: " . $row["TicketID"]. " - Topic: " . $row["Body"]. " - Status: " . $row["Name"]. " - Date: " .date("Y/m/d H:i:s", strtotime($row["time"])). "" ?>
-        <h4>Answer</h4>
+        <?php echo "id: " . $row["TicketID"]. "<br><br>Topic: " . $row["Body"]. "<br><br>Status: " . $row["Name"]. "<br><br>Date: " .date("Y/m/d H:i:s", strtotime($row["time"])). "" ?>
+        <h4><br>Answer</h4>
         <hr>
         <div class="mx-auto border"><p><?php echo $row['Answer']?></p></div>
         <?php

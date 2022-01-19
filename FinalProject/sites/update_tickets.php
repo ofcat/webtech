@@ -66,9 +66,9 @@ if(isset($_GET['delete'])){
         </div>
         <select class="custom-select" name = "Status" id="inputGroupSelect01">
             <option selected><?php echo $row['Status']; ?></option>
-            <option value="1">ToDo</option>
-            <option value="2">Done</option>
-            <option value="3">InProgress</option>
+            <option value="1">open</option>
+            <option value="2">successfully closed</option>
+            <option value="3">closed unsuccessfuly</option>
         </select>
         </div>
     </td>

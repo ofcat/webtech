@@ -35,10 +35,10 @@ if (session_status() === PHP_SESSION_NONE) {
                     </li>
                     <?php } if(isset($_SESSION["username"]) && getRights($_SESSION["username"], $con) >= 3) { ?>
                         <li class="nav-item">
-                        <a class="nav-link" href="../sites/adminNews.php">publish</a>
+                        <a class="nav-link" href="../sites/adminNews.php">Publish</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="../sites/user_moderation.php">customs</a>
+                        <a class="nav-link" href="../sites/user_moderation.php">Customs</a>
                     </li>
                    
                     <?php }?> 
