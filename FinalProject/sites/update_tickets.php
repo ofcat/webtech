@@ -40,6 +40,7 @@ if(isset($_GET['delete'])){
         <td>Answer</td>
         <td>Close</td>
         <td>Update</td>
+        <td>Picture</td>
 	  </tr>
 
 
@@ -80,6 +81,9 @@ if(isset($_GET['delete'])){
 </td>
 <td>
 <input type="submit" name="submit" value="Submit" class="buttom">
+</td>
+<td>
+    <img src="<?php echo $row['Picture']?>" alt="Picture">
 </td>
                               
 </tr>

@@ -28,13 +28,14 @@ if(count($_GET)>0){ //check if form was submitted
         $body = stripslashes($_REQUEST['body']);
         //escapes special characters in a string
         $body = mysqli_real_escape_string($con, $body);
+        $targetdir = "../uploads/ticketPictures/";
 
-        $targetdir = "../uploads/";
+        if (isset($_FILES["fileToUpload"])) {
+        
         $target_file = $targetdir.basename($_FILES['fileToUpload']['name']);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
           $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
           if($check !== false) {
             echo "File is an image - " . $check["mime"] . ".";
@@ -43,14 +44,13 @@ if(count($_GET)>0){ //check if form was submitted
             echo "File is not an image.";
             $uploadOk = 0;
           }
-        }
 
         if (file_exists($target_file)) {
           echo "Sorry, file already exists.";
           $uploadOk = 0;
         }
 
-                            // Check if $uploadOk is set to 0 by an error
+        // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
           echo "Sorry, your file was not uploaded.";
         // if everything is ok, try to upload file
@@ -61,14 +61,20 @@ if(count($_GET)>0){ //check if form was submitted
             echo "Sorry, there was an error uploading your file.";
           }
         }
+      
 
         $date = new DateTime();
-        $date = date('Y-m-d');
+        $date = date('Y-m-d H:i:s');
         // Check connection
 
         $query    = "INSERT into `tickets` (Body, time, Picture)
                      VALUES ('$body', '$date', '$target_file')";
         $result   = mysqli_query($con, $query);
+      }else{
+        $query    = "INSERT into `tickets` (Body, time)
+        VALUES ('$body', '$date')";
+      $result   = mysqli_query($con, $query);
+      }
     }
 
     $query = "";
@@ -86,7 +92,7 @@ if ($result->num_rows > 0) {
   
     <tr>
       <td>
-        <?php echo "id: " . $row["TicketID"]. " - Topic: " . $row["Body"]. " - Status: " . $row["Name"]. " - Date: " .date("Y/m/d", strtotime($row["time"])). "" ?>
+        <?php echo "id: " . $row["TicketID"]. " - Topic: " . $row["Body"]. " - Status: " . $row["Name"]. " - Date: " .date("Y/m/d H:i:s", strtotime($row["time"])). "" ?>
         <h4>Answer</h4>
         <hr>
         <div class="mx-auto border"><p><?php echo $row['Answer']?></p></div>
@@ -105,7 +111,6 @@ if ($result->num_rows > 0) {
 		?>
       </td>
       <td>
-        <a href="<?php echo $row['Picture']?>"></a>
       </td>
     </tr>
   
@@ -125,14 +130,14 @@ if ($result->num_rows > 0) {
 
     </div>
 <div class="container bg-secondary mx-3 border pt-2">
-<form class="form" action="" method="post" >
+<form class="form" action="" method="post" enctype="multipart/form-data">
         <h4 class="news-title">Create new Tickets</h4>
-        <textarea  class = "border"name="body" rows="4" cols="50" maxlength="999"></textarea> <br>
+        <textarea require class = "border"name="body" rows="4" cols="50" maxlength="999"></textarea> <br>
         <br><br>
         <h5>Upload Pictures</h5>
         <br>
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" name="submit" value="Open new Ticket" class="news-button">
+        <input type="file" name="fileToUpload" id="fileToUpload" required>
+        <input type="submit" name="submit"  value="Open new Ticket" class="news-button">
         <br>
         </form>
 </div>

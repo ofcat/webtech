@@ -2,7 +2,8 @@
 include '../sites/includes/navbar.php';
 include '../sites/includes/head.php';
 require('../config/db.php');
-if(count($_POST)>0) {
+
+if(isset($_POST['submit'])) {
     if(isset($_POST['newpw']) and isset($_POST['oldpw']) and $_POST['newpw'] != "" and $_POST['oldpw']!=""){
         $password = $_POST['oldpw'];
         $id = $_POST['id'];
@@ -12,14 +13,24 @@ if(count($_POST)>0) {
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $password = $_POST['newpw'];
+            if($_SESSION['RechteID'] > $_POST['right']){
+                mysqli_query($con,"UPDATE users set  firstName='" . $_POST['firstName'] . "', lastName='" . $_POST['lastName'] . "', salutation='" . $_POST['salutation'] . "' ,username='" . $_POST['username'] . "' , useremail='" .$_POST['useremail']. "' , password='" .md5($password)."' ,userStatus ='". $_POST['Status']."', RechteID='" . $_POST['right'] . "' WHERE ID='" . $_POST['id'] . "'");
+                
+            }else{
             mysqli_query($con,"UPDATE users set  firstName='" . $_POST['firstName'] . "', lastName='" . $_POST['lastName'] . "', salutation='" . $_POST['salutation'] . "' ,username='" . $_POST['username'] . "' , useremail='" .$_POST['useremail']. "' , password='" .md5($password)."' ,userStatus ='". $_POST['Status']."' WHERE ID='" . $_POST['id'] . "'");
-            $message = "Record Modified Successfully";
+            
+            }
     }else{
         $message = "Record not Modified";
     }
 }else{
-    mysqli_query($con,"UPDATE users set  firstName='" . $_POST['firstName'] . "', lastName='" . $_POST['lastName'] . "', salutation='" . $_POST['salutation'] . "' ,username='" . $_POST['username'] . "' , useremail='" .$_POST['useremail']. "' ,userStatus ='". $_POST['Status']."' WHERE ID='" . $_POST['id'] . "'");
-    $message = "Record Modified Successfully";
+    
+    if($_SESSION['RechteID'] > $_POST['right']){
+        mysqli_query($con,"UPDATE users set  firstName='" . $_POST['firstName'] . "', lastName='" . $_POST['lastName'] . "', salutation='" . $_POST['salutation'] . "' ,username='" . $_POST['username'] . "' , useremail='" .$_POST['useremail']. "' , ,userStatus ='". $_POST['Status']."', RechteID='" . $_POST['right'] . "' WHERE ID='" . $_POST['id'] . "'");
+        
+    }else{
+        mysqli_query($con,"UPDATE users set  firstName='" . $_POST['firstName'] . "', lastName='" . $_POST['lastName'] . "', salutation='" . $_POST['salutation'] . "' ,username='" . $_POST['username'] . "' , useremail='" .$_POST['useremail']. "' ,userStatus ='". $_POST['Status']."' WHERE ID='" . $_POST['id'] . "'");
+    }
     // if($_SESSION['id']  != 6){
     //     header('Location: ../config/logout.php');
     // }
@@ -48,6 +59,7 @@ $attribution = mysqli_fetch_array($result2);
 		<td>Username</td>
 		<td>Useremail</td>
         <td>Status</td>
+        <td>Rights</td>
 	  </tr>
 
 
@@ -82,8 +94,12 @@ $attribution = mysqli_fetch_array($result2);
             <option value="inactive">inactive</option>
         </select>
     </td>
-
-
+    <td>
+    <select class="custom-select" name = "right">
+            <option selected value=3>Service-Techniker</option>
+            <option value=4>Admin</option>
+        </select>
+    </td>
 </tr>
 <tr>
 <td>new password</td>

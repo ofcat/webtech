@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 19. Jan 2022 um 19:32
+-- Erstellungszeit: 19. Jan 2022 um 21:11
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.12
 
@@ -85,9 +85,9 @@ CREATE TABLE `status` (
 --
 
 INSERT INTO `status` (`ID`, `Name`) VALUES
-(1, 'ToDo'),
-(2, 'Done'),
-(3, 'InProgress');
+(1, 'open'),
+(2, 'successfuly closed'),
+(3, 'closed unsuccessfuly');
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE `tickets` (
   `Title` varchar(50) NOT NULL DEFAULT 'Title',
   `Answer` varchar(200) DEFAULT NULL,
   `Picture` varchar(200) DEFAULT NULL,
-  `time` date DEFAULT NULL
+  `time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -110,13 +110,19 @@ CREATE TABLE `tickets` (
 --
 
 INSERT INTO `tickets` (`TicketID`, `Status`, `Body`, `Title`, `Answer`, `Picture`, `time`) VALUES
-(1, 3, 'problem with login', 'login', 'Working on it', NULL, NULL),
+(1, 3, 'problem with login', 'login', 'Working on it have daone', NULL, NULL),
 (2, 2, 'Problem with email', 'email', NULL, NULL, NULL),
 (7, 1, '', 'Title', NULL, NULL, NULL),
-(8, 1, 'A new Ticket', 'Title', NULL, NULL, '0000-00-00'),
-(9, 1, 'A new Ticket', 'Title', NULL, NULL, '0000-00-00'),
-(10, 1, '', 'Title', NULL, NULL, '0000-00-00'),
-(11, 1, '', 'Title', NULL, NULL, '2022-01-19');
+(8, 1, 'A new Ticket', 'Title', NULL, NULL, '0000-00-00 00:00:00'),
+(9, 1, 'A new Ticket', 'Title', NULL, NULL, '0000-00-00 00:00:00'),
+(10, 1, '', 'Title', NULL, NULL, '0000-00-00 00:00:00'),
+(11, 1, '', 'Title', NULL, NULL, '2022-01-19 00:00:00'),
+(12, 1, '', 'Title', NULL, '', '2022-01-19 00:00:00'),
+(14, 1, 'no', 'Title', NULL, '../uploads/ticketPictures/eichhoernchen-geert-weggen-zeigt-die-welt-der-kleinen-nager-.jpg', '2022-01-19 00:00:00'),
+(15, 1, 'hallo', 'Title', NULL, '../uploads/ticketPictures/eichhoernchen-geert-weggen-zeigt-die-welt-der-kleinen-nager-.jpg', '2022-01-19 21:03:17'),
+(16, 1, 'hallo', 'Title', NULL, '../uploads/ticketPictures/eichhoernchen-geert-weggen-zeigt-die-welt-der-kleinen-nager-.jpg', '2022-01-19 21:04:00'),
+(17, 1, '', 'Title', NULL, '../uploads/ticketPictures/eichhoernchen-geert-weggen-zeigt-die-welt-der-kleinen-nager-.jpg', '2022-01-19 21:09:43'),
+(18, 1, 'ri', 'Title', NULL, '../uploads/ticketPictures/eichhoernchen-geert-weggen-zeigt-die-welt-der-kleinen-nager-.jpg', '2022-01-19 21:10:23');
 
 -- --------------------------------------------------------
 
@@ -144,7 +150,7 @@ INSERT INTO `users` (`ID`, `firstName`, `lastName`, `salutation`, `username`, `p
 (1, 'Martin', 'Böck', 'Mr.', 'mb', '63a9f0ea7bb98050796b649e85481845', 'mb@boeck.info', 5, 'active'),
 (2, 'Vasilii', 'Klemenko', 'Mr.', 'vk', '63a9f0ea7bb98050796b649e85481845', 'wi20b030@technikum-wien.at', 5, 'active'),
 (3, 'test', '1', 'Mr.', 't2', '098f6bcd4621d373cade4e832627b4f6', 't@test.at', 1, 'active'),
-(4, 'some', 'admin', 'Mr.', 'sa', '63a9f0ea7bb98050796b649e85481845', 'sa@test.at', 4, 'active'),
+(4, 'some', 'admin', 'Mr.', 'sa', '569ef72642be0fadd711d6a468d68ee1', 'sa@test.at', 4, 'active'),
 (5, 'Service', 'Techniker', 'Mr.', 'st', 'd9f9133fb120cd6096870bc2b496805b', 'st@technik.at', 3, 'active');
 
 --
@@ -202,7 +208,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT für Tabelle `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `TicketID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `TicketID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
