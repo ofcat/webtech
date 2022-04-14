@@ -10,8 +10,8 @@ img{
 }
 
 .container{
-    margin-top: 100px;
-    margin-left: 250px;
+    margin-top: 100px; 
+    margin-left: 250px; 
 }
 
 .nav{
@@ -94,6 +94,10 @@ footer{
     margin-bottom: 3em;
 }
 
+.navbar-custom a{
+    color: black;
+}
+
 .col-sm-4{
     padding-left: 3em;
 }
@@ -107,5 +111,20 @@ footer{
 }
 
 
+a:hover{
+    color: rgb(85, 83, 83);
+}
+a{
+    color: black;
+}
 
+<<<<<<< HEAD
 
+=======
+.navbar{
+    font-size: large;
+}
+#navbarSupportedContent{
+    color: black;
+}
+>>>>>>> 719743ee380ca3fb1b787473b76aaecd952a1e85

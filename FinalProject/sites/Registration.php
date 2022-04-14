@@ -50,7 +50,7 @@
         <input type="email" class="login-input" name="useremail" placeholder="Email Adress" required>
         <input type="password" class="login-input" name="password" placeholder="Password" required> <br>
         <input type="submit" name="submit" value="Register" class="login-button">
-        <input type="reset">
+        <input type="reset" value ="Reset">
         <p class="link"><a href="Login.php">Click to Login</a></p>
     </form>
 

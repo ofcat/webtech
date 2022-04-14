@@ -7,9 +7,9 @@
                 <strong class="name">Hotel Palace</strong>
 
                 <nav class="footer-nav">
-                    <a href="about.php">About</a>
-                    <a href="news.php">News</a>
-                    <a href="Login.php">Login</a>
+                    <a href="../sites/about.php">about</a>
+                    <a href="../sites/news.php">news</a>
+                    <a href="../sites/help.php">help</a>
                 </nav>
             </div>
         </div>

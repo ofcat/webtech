@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include '../sites/includes/navbar.php';
 include '../sites/includes/head.php';
 require('../config/db.php');
@@ -43,6 +44,21 @@ $right = $row["RechteID"];
 $result2 = mysqli_query($con, "SELECT Name FROM rechte WHERE ID = '$right'");
 $attribution = mysqli_fetch_array($result2);
 
+=======
+require('../config/db.php');
+if(count($_POST)>0) {
+mysqli_query($con,"UPDATE users set  firstName='" . $_POST['firstName'] . "', lastName='" . $_POST['lastName'] . "', salutation='" . $_POST['salutation'] . "' ,username='" . $_POST['username'] . "' , useremail='" .$_POST['useremail']. "' , password='" .md5($_POST['password'])."' WHERE id='" . $_POST['id'] . "'");
+$message = "Record Modified Successfully";
+// if($_SESSION['id']  != 6){
+//     header('Location: ../config/logout.php');
+// }
+
+}
+$result = mysqli_query($con,"SELECT * FROM users WHERE id='" . $_GET['id'] . "'");
+$row= mysqli_fetch_array($result);
+include '../sites/includes/navbar.php';
+include '../sites/includes/head.php'
+>>>>>>> 719743ee380ca3fb1b787473b76aaecd952a1e85
 ?>
 
 <title>Update Employee Data</title>
@@ -58,8 +74,12 @@ $attribution = mysqli_fetch_array($result2);
 		<td>Salutation</td>
 		<td>Username</td>
 		<td>Useremail</td>
+<<<<<<< HEAD
         <td>Status</td>
         <td>Rights</td>
+=======
+        <td>Password</td>
+>>>>>>> 719743ee380ca3fb1b787473b76aaecd952a1e85
 	  </tr>
 
 
@@ -69,8 +89,13 @@ $attribution = mysqli_fetch_array($result2);
 
 <tr>
     <td>
+<<<<<<< HEAD
     <input type="hidden" name="id" class="txtField" value="<?php echo $row['ID']; ?>">
     <!-- <input type="text" name="id"  value="<?php echo $row['ID']; ?>"> -->
+=======
+    <input type="hidden" name="id" class="txtField" value="<?php echo $row['id']; ?>">
+    <!-- <input type="text" name="id"  value="<?php echo $row['id']; ?>"> -->
+>>>>>>> 719743ee380ca3fb1b787473b76aaecd952a1e85
     </td>
     <td>
     <input type="text" name="firstName" class="txtField" value="<?php echo $row['firstName']; ?>">
@@ -88,6 +113,7 @@ $attribution = mysqli_fetch_array($result2);
     <input type="text" name="useremail" class="txtField" value="<?php echo $row['useremail']; ?>">
     </td>
     <td>
+<<<<<<< HEAD
     <select class="custom-select" name = "Status">
             <option selected><?php echo $row['userStatus']; ?></option>
             <option value="active">active</option>
@@ -110,6 +136,12 @@ $attribution = mysqli_fetch_array($result2);
 <tr>
 <td><input type="text" name="newpw" class="txtField"></td>
 <td><input type="text" name="oldpw" class ="txtField"></td>
+=======
+    <input type="text" name="password" class="txtField" value="<?php echo $row['password'];?>">
+    </td>
+
+
+>>>>>>> 719743ee380ca3fb1b787473b76aaecd952a1e85
 </tr>
 
 <input type="submit" name="submit" value="Submit" class="buttom">
@@ -118,5 +150,13 @@ $attribution = mysqli_fetch_array($result2);
    
     </div>
 
+<<<<<<< HEAD
 </body>
 <?php include '../sites/includes/footer.php' ?>
+=======
+
+    
+
+</body>
+<?php include '../sites/includes/footer.php'?>
+>>>>>>> 719743ee380ca3fb1b787473b76aaecd952a1e85
